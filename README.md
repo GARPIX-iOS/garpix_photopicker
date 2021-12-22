@@ -18,7 +18,25 @@
 
 # 🔷 Documentation
 
+``` swift
+struct ContentView: View {
+    @State var showPicker: Bool = false   
+    @State var pickedImage: [UIImages] = [] 
+    var body: some View {
+        Button("Show Photopicker") {
+            showPicker.toggle()
+        }
+        .padding()
+        .sheet(isPresented: $showPicker) {
+            GXPhotoPicker(images: $pickedImages, imageCount: 2, handlePickedImage { _ in 
+            // do whatever you want...
+            })
+        }
+    }
+}
+```
 
+![example](./exampleLook.jpg)
 
 # 🔷 Contributing
 
