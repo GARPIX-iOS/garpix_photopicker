@@ -19,6 +19,13 @@ public struct GXPhotoPicker: UIViewControllerRepresentable {
     /// Обработчик, который передает URL сделанной фотографии
     let handlePickedImage: (URL) -> Void
     
+    
+    public init(images: Binding<[UIImage]>, imageCount: Int, handlePickedImage: @escaping (URL) -> Void) {
+        _images = images
+        self.imageCount = imageCount
+        self.handlePickedImage = handlePickedImage
+    }
+    
     /// Функция для настройки конфигурации пикера, принимает параметр количество изображений imageCount.
     /// - Returns: PHPickerConfiguration
     func configurePHPPicker() -> PHPickerConfiguration {
